@@ -1,0 +1,43 @@
+{
+	"name": "ds_adf_evelyn_prototype_adlsgen2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adf_evelyn_prototype_adls_gen2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DS_File_System": {
+				"type": "string"
+			},
+			"DS_Folder_Name": {
+				"type": "string"
+			},
+			"DS_File_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().DS_File_Name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().DS_Folder_Name",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().DS_File_System",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
